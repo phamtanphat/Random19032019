@@ -3,6 +3,7 @@ package khoapham.ptp.phamtanphat.random1903;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -28,5 +29,19 @@ public class MainActivity extends AppCompatActivity {
         btnRandom = findViewById(R.id.buttonRandom);
         txtKetqua = findViewById(R.id.textviewKetqua);
 
+        btnRandom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String somin = edtSomin.getText().toString();
+                String somax = edtSomax.getText().toString();
+
+                int smin = Integer.parseInt(somin);
+                int smax = Integer.parseInt(somax);
+
+                Random random = new Random();
+                int ketqua = random.nextInt(smax - smin + 1) + smin;
+                txtKetqua.setText(ketqua + "");
+            }
+        });
     }
 }
