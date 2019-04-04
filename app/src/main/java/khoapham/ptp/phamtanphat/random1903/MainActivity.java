@@ -13,8 +13,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Random random = new Random();
-        int value = random.nextInt();
-        int value1 = random.nextInt();
-        Log.d("BBB",value + " " +  value1 + "");
+//        (max - min + 1) + min;
+        int value = random.nextInt(2000 - 5 + 1) + 5;
+        Log.d("BBB",value + " " );
+
+
     }
 }
