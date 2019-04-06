@@ -43,10 +43,15 @@ public class MainActivity extends AppCompatActivity {
                 int smax = Integer.parseInt(somax);
                 // phim goi y tham so truyen vao ctrl + P
 
+                mangkhoangcach.clear();
+
                 for (int i = smin ; i<= smax ; i++){
                     mangkhoangcach.add(i);
                 }
-                Log.d("BBB",mangkhoangcach.size() + "");
+                for (int value : mangkhoangcach){
+                    Log.d("BBB",value + "");
+                }
+
             }
         });
 
