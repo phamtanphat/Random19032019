@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -42,16 +43,10 @@ public class MainActivity extends AppCompatActivity {
                 int smin = Integer.parseInt(somin);
                 int smax = Integer.parseInt(somax);
                 // phim goi y tham so truyen vao ctrl + P
-
                 mangkhoangcach.clear();
-
                 for (int i = smin ; i<= smax ; i++){
                     mangkhoangcach.add(i);
                 }
-                for (int value : mangkhoangcach){
-                    Log.d("BBB",value + "");
-                }
-
             }
         });
 
@@ -60,13 +55,16 @@ public class MainActivity extends AppCompatActivity {
         btnRandom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Random random = new Random();
+                if (mangkhoangcach.size() > 0){
+                    int index = random.nextInt(mangkhoangcach.size());
+                    int value = mangkhoangcach.get(index);
+                    txtKetqua.append(value + " - ");
+                    mangkhoangcach.remove(index);
+                }else{
+                    Toast.makeText(MainActivity.this, "Het số random", Toast.LENGTH_SHORT).show();
+                }
 
-
-//                Random random = new Random();
-//
-//                int ketqua = random.nextInt(smax - smin + 1) + smin;
-////                value += ketqua + " - ";
-//                txtKetqua.append(ketqua + " - ");
             }
         });
     }
