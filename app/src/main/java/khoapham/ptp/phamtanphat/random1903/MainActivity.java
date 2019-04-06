@@ -15,9 +15,9 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity {
 
     EditText edtSomin,edtSomax;
-    Button btnRandom;
+    Button btnRandom , btnAddArray;
     TextView txtKetqua;
-//    String value =  "";
+    ArrayList<Integer> mangkhoangcach = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,8 +31,9 @@ public class MainActivity extends AppCompatActivity {
         edtSomin = findViewById(R.id.edittextSomin);
         btnRandom = findViewById(R.id.buttonRandom);
         txtKetqua = findViewById(R.id.textviewKetqua);
+        btnAddArray = findViewById(R.id.buttonAddArray);
 
-        btnRandom.setOnClickListener(new View.OnClickListener() {
+        btnAddArray.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String somin = edtSomin.getText().toString();
@@ -40,12 +41,27 @@ public class MainActivity extends AppCompatActivity {
 
                 int smin = Integer.parseInt(somin);
                 int smax = Integer.parseInt(somax);
+                // phim goi y tham so truyen vao ctrl + P
 
-                Random random = new Random();
+                for (int i = smin ; i<= smax ; i++){
+                    mangkhoangcach.add(i);
+                }
+                Log.d("BBB",mangkhoangcach.size() + "");
+            }
+        });
 
-                int ketqua = random.nextInt(smax - smin + 1) + smin;
-//                value += ketqua + " - ";
-                txtKetqua.append(ketqua + " - ");
+
+
+        btnRandom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+//                Random random = new Random();
+//
+//                int ketqua = random.nextInt(smax - smin + 1) + smin;
+////                value += ketqua + " - ";
+//                txtKetqua.append(ketqua + " - ");
             }
         });
     }
