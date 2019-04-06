@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
@@ -15,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     EditText edtSomin,edtSomax;
     Button btnRandom;
     TextView txtKetqua;
+//    String value =  "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,8 +42,10 @@ public class MainActivity extends AppCompatActivity {
                 int smax = Integer.parseInt(somax);
 
                 Random random = new Random();
+
                 int ketqua = random.nextInt(smax - smin + 1) + smin;
-                txtKetqua.setText(ketqua + "");
+//                value += ketqua + " - ";
+                txtKetqua.append(ketqua + " - ");
             }
         });
     }
