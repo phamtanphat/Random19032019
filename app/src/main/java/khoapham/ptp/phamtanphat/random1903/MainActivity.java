@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     Button btnRandom , btnAddArray;
     TextView txtKetqua;
     ArrayList<Integer> mangkhoangcach = new ArrayList<>();
-
+    String ketqua = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,13 +57,22 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Random random = new Random();
                 if (mangkhoangcach.size() > 0){
+
                     int index = random.nextInt(mangkhoangcach.size());
                     int value = mangkhoangcach.get(index);
-                    txtKetqua.append(value + " - ");
+                    if(mangkhoangcach.size() == 1){
+                        ketqua += value + "";
+                    }else{
+                        ketqua +=  value + " - ";
+                    }
+                    txtKetqua.setText(ketqua);
                     mangkhoangcach.remove(index);
                 }else{
                     Toast.makeText(MainActivity.this, "Het số random", Toast.LENGTH_SHORT).show();
+                    
                 }
+
+
 
             }
         });
